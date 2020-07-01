@@ -4,6 +4,6 @@
 <ul>
     <li *ngFor="let user of users">
         {{user.username}} ({{user.firstName}} {{user.lastName}})
-        - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
+        - <a (click)="deleteUser(user.id)" class="text-danger" style="cursor: pointer;">Delete</a>
     </li>
 </ul>
