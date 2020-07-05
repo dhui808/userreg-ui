@@ -5,7 +5,8 @@ import { environment } from '../../environments/environment';
 const ENDPOINT_PATH = Object.freeze({
 	LOGIN : '/user/authenticate',
 	REGISTER : '/user/register',
-	ALL_USERS : '/users/findAll'
+	ALL_USERS : '/users/findAll',
+	DELETE: '/user'
 });
 
 export default abstract class BaseService {
@@ -28,5 +29,12 @@ export default abstract class BaseService {
         url = `${this.BASE_URL}${url}`;
         
 		return this.http.get(url)
+    }
+
+	delete(path:string, id:number): Observable<any> {
+        var url = ENDPOINT_PATH[path];
+        url = `${this.BASE_URL}${url}/${id}`;
+        
+		return this.http.delete(url)
     }
 }

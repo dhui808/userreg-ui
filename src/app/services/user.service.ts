@@ -19,7 +19,7 @@ export class UserService extends BaseService {
         return this.post('REGISTER', user);
     }
 
-    delete(id: number) {
-        return this.http.delete(environment.apiUrl + '/users/' + id);
+    deleteUser(id: number) {
+        return this.delete('DELETE', id);
     }
 }
